@@ -1,8 +1,8 @@
 {
   "name": "react-clock",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A React component to display the current time.",
-  "main": "index.jsx",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,6 +27,9 @@
   },
   "homepage": "https://github.com/ryanburgess/react-clock",
   "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.2.1",
+    "gulp-rename": "^1.2.2"
   },
   "dependencies": {
     "react": "^0.13.3"
