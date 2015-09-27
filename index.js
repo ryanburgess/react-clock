@@ -1,6 +1,6 @@
-var React = require('react');
 'use strict';
 
+var React = require('react');
 var output;
 var SetIntervalMixin = {
   componentWillMount: function componentWillMount() {
