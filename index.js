@@ -1,7 +1,12 @@
 'use strict';
 
-var React = require('react');
-var output;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var output = undefined;
 var SetIntervalMixin = {
   componentWillMount: function componentWillMount() {
     this.intervals = [];
@@ -55,7 +60,7 @@ var renderTime = function renderTime() {
   return output;
 };
 
-var Clock = React.createClass({
+var Clock = _react2['default'].createClass({
   displayName: 'Clock',
 
   mixins: [SetIntervalMixin],
@@ -70,7 +75,7 @@ var Clock = React.createClass({
     this.setState({ hours: output.hours, minutes: output.minutes, seconds: output.seconds, diem: output.diem });
   },
   render: function render() {
-    return React.createElement(
+    return _react2['default'].createElement(
       'p',
       { className: 'clock' },
       this.state.hours,
@@ -78,7 +83,7 @@ var Clock = React.createClass({
       this.state.minutes,
       ':',
       this.state.seconds,
-      React.createElement(
+      _react2['default'].createElement(
         'span',
         { className: 'diem' },
         this.state.diem

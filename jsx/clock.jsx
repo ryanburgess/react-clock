@@ -1,6 +1,6 @@
-var React = require('react');
-var output;
-var SetIntervalMixin = {
+import React from 'react';
+let output;
+const SetIntervalMixin = {
   componentWillMount: function () {
     this.intervals = [];
   },
