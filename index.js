@@ -38,7 +38,7 @@ var renderTime = function renderTime() {
   var m = currentTime.getMinutes();
   var s = currentTime.getSeconds();
 
-  if (h == 0) {
+  if (h === 0) {
     h = 12;
   } else if (h > 12) {
     h = h - 12;
@@ -62,7 +62,6 @@ var renderTime = function renderTime() {
 
 var Clock = _react2['default'].createClass({
   displayName: 'Clock',
-
   mixins: [SetIntervalMixin],
   getInitialState: function getInitialState() {
     return { time: renderTime() };

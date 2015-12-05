@@ -1,7 +1,8 @@
-var React = require('react');
-var Clock = require('./clock');
+import React from 'react';
+import Clock from './clock';
 
-var App = React.createClass({
+const App = React.createClass({
+  displayName: 'Clock',
   render() {
     return (
       <div>

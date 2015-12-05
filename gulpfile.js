@@ -3,6 +3,14 @@ var rename = require('gulp-rename');
 var browserify = require('browserify');
 var babel = require('gulp-babel');
 var source = require('vinyl-source-stream');
+var eslint = require('gulp-eslint');
+
+gulp.task('lint', function () {
+  return gulp.src(['jsx/**/*'])
+  .pipe(eslint())
+  .pipe(eslint.format())
+  .pipe(eslint.failAfterError());
+});
 
 gulp.task('scripts', function () {
     return gulp.src('jsx/clock.jsx')
@@ -31,6 +39,6 @@ gulp.task('example', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./jsx/**/*'], ['scripts', 'example']);
+  gulp.watch(['./jsx/**/*'], ['lint', 'scripts', 'example']);
 });
 gulp.task('default', ['watch']);
