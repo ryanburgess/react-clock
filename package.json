@@ -1,6 +1,6 @@
 {
   "name": "react-clock",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A React component to display the current time.",
   "main": "index.js",
   "scripts": {
