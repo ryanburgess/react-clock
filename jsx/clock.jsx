@@ -1,31 +1,31 @@
 import React from 'react';
 let output;
 const SetIntervalMixin = {
-  componentWillMount: function () {
+  componentWillMount() {
     this.intervals = [];
   },
 
-  componentWillUnmount: function () {
+  componentWillUnmount() {
     this.intervals.map(clearInterval);
   },
 
-  setInterval: function () {
+  setInterval() {
     this.intervals.push(setInterval.apply(null, arguments));
   }
 };
 
 const renderTime = () => {
-  let currentTime = new Date();
+  const currentTime = new Date();
   let diem = 'AM';
   let h = currentTime.getHours();
   let m = currentTime.getMinutes();
   let s = currentTime.getSeconds();
 
-  if (h == 0) {
+  if (h === 0) {
     h = 12;
-  } else if (h > 12) { 
+  } else if (h > 12) {
     h = h - 12;
-    diem='PM';
+    diem = 'PM';
   }
 
   if (m < 10) {
@@ -38,28 +38,29 @@ const renderTime = () => {
     hours: h,
     minutes: m,
     seconds: s,
-    diem: diem
-  }
+    diem
+  };
   return output;
-}
+};
 
 const Clock = React.createClass({
+  displayName: 'Clock',
   mixins: [SetIntervalMixin],
   getInitialState() {
-    return {time: renderTime()};
+    return { time: renderTime() };
   },
   componentDidMount() {
     this.setInterval(this.tick, 1000);
   },
   tick() {
     renderTime();
-    this.setState({hours: output.hours, minutes: output.minutes, seconds: output.seconds, diem: output.diem});
+    this.setState({ hours: output.hours, minutes: output.minutes, seconds: output.seconds, diem: output.diem });
   },
   render() {
     return (
       <p className='clock'>
-        {this.state.hours}:{this.state.minutes}:{this.state.seconds}
-        <span className='diem'>{this.state.diem}</span>
+        { this.state.hours }:{ this.state.minutes }:{ this.state.seconds }
+        <span className='diem'>{ this.state.diem }</span>
       </p>
     );
   }
